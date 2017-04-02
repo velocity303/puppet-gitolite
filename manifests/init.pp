@@ -14,7 +14,7 @@ class gitolite (
   }
 
   exec { 'install_gitolite':
-    command => '/opt/gitolite/install -ln /usr/local/bin',
+    command => '/opt/gitolite/install -ln /usr/local/bin/',
     user    => 'git',
     path    => $::path,
     require => Vcsrepo['/opt/gitolite'],
