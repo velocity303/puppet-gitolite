@@ -27,6 +27,7 @@ class gitolite (
     environment => 'HOME=/home/git',
     user    => 'git',
     path    => $::path,
+    creates => '/home/git/bin/gitolite',
     require => Vcsrepo['/home/git/gitolite'],
   }
 
@@ -42,6 +43,7 @@ class gitolite (
     environment => 'HOME=/home/git',
     user        => 'git',
     path        => $::path,
+    creates     => '/home/git/repositories/gitolite-admin.git',
     require     => Exec['install_gitolite'],
   }
 
