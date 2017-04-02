@@ -2,12 +2,6 @@ class gitolite (
   $admin_key_content,
 ) {
 
-  user { 'git':
-    ensure     => present,
-    home       => '/home/git',
-    managehome => true,
-  }
-
   file { '/home/git/bin':
     ensure => directory,
     owner  => 'git',
