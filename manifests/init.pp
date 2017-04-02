@@ -23,7 +23,7 @@ class gitolite (
   }
 
   exec { 'install_gitolite':
-    command => '/opt/gitolite/install -ln /home/git/bin/',
+    command => '/opt/gitolite/install -to /home/git/bin/',
     user    => 'git',
     path    => $::path,
     require => Vcsrepo['/opt/gitolite'],
