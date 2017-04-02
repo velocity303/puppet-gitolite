@@ -7,6 +7,13 @@ class gitolite (
     home   => '/home/git',
   }
 
+  file { '/home/git/bin':
+    ensure => present,
+    owner  => 'git',
+    group  => 'git',
+    before => Exec['install_gitolite'],
+  }
+
   vcsrepo { '/opt/gitolite':
     ensure   => present,
     user     => 'git',
