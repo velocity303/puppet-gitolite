@@ -15,7 +15,7 @@ class gitolite (
     before => Exec['install_gitolite'],
   }
 
-  vcsrepo { '/opt/gitolite':
+  vcsrepo { '/home/git/gitolite':
     ensure   => present,
     user     => 'git',
     provider => git,
@@ -23,13 +23,14 @@ class gitolite (
   }
 
   exec { 'install_gitolite':
-    command => '/opt/gitolite/install -to /home/git/bin/',
+    command => '/home/git/gitolite/install -to /home/git/bin',
+    environment => 'HOME=/home/git',
     user    => 'git',
     path    => $::path,
-    require => Vcsrepo['/opt/gitolite'],
+    require => Vcsrepo['/home/git/gitolite'],
   }
 
-  file { '/tmp/admin_key.pub':
+  file { '/home/git/admin_key.pub':
     ensure  => present,
     owner   => 'git',
     content => $admin_key_content,
