@@ -2,12 +2,6 @@ class gitolite (
   $admin_key_content,
 ) {
 
-  user { 'git':
-    ensure     => present,
-    home       => '/home/git',
-    managehome => true,
-  }
-
   file { '/home/git/bin':
     ensure => directory,
     owner  => 'git',
@@ -39,7 +33,7 @@ class gitolite (
   }
 
   exec { 'setup_gitolite':
-    command     => 'gitolite setup -pk /tmp/admin_key.pub',
+    command     => 'gitolite setup -pk /home/git/admin_key.pub',
     environment => 'HOME=/home/git',
     user        => 'git',
     path        => $::path,
