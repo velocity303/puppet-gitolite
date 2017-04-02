@@ -9,7 +9,7 @@ class gitolite (
   } 
 
   exec { 'install_gitolite':
-    command => '/opt/gitolite/install -ln',
+    command => '/opt/gitolite/install -ln /usr/local/bin',
     path    => $::path,
     require => Vcsrepo['/opt/gitolite'],
   }
