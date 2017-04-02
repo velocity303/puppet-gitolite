@@ -4,7 +4,6 @@ class gitolite (
 
   user { 'git':
     ensure => present,
-    group  => 'git',
   }
 
   vcsrepo { '/opt/gitolite':
