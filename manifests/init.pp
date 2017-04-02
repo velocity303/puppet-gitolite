@@ -9,7 +9,7 @@ class gitolite (
   }
 
   file { '/home/git/bin':
-    ensure => present,
+    ensure => directory,
     owner  => 'git',
     group  => 'git',
     before => Exec['install_gitolite'],
