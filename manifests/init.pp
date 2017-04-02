@@ -3,8 +3,9 @@ class gitolite (
 ) {
 
   user { 'git':
-    ensure => present,
-    home   => '/home/git',
+    ensure     => present,
+    home       => '/home/git',
+    managehome => true,
   }
 
   file { '/home/git/bin':
