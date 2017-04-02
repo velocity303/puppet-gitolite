@@ -15,7 +15,7 @@ class gitolite (
     before => Exec['install_gitolite'],
   }
 
-  vcsrepo { '/home/git/gitolite':
+  vcsrepo { '/opt/gitolite':
     ensure   => present,
     user     => 'git',
     provider => git,
