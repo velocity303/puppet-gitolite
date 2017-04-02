@@ -16,7 +16,7 @@ class gitolite (
 
   exec { 'install_gitolite':
     command => '/opt/gitolite/install -ln /usr/local/bin',
-    user    => 'git'
+    user    => 'git',
     path    => $::path,
     require => Vcsrepo['/opt/gitolite'],
   }
@@ -29,10 +29,10 @@ class gitolite (
 
   exec { 'setup_gitolite':
     command     => 'gitolite setup -pk /tmp/admin_key.pub',
-    environment => 'HOME=$HOME'
-    user        => 'git'
+    environment => 'HOME=$HOME',
+    user        => 'git',
     path        => $::path,
-    require     => Exec['install_gitolite']
+    require     => Exec['install_gitolite'],
   }
 
 }
