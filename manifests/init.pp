@@ -38,7 +38,6 @@ class gitolite (
 
   exec { 'setup_gitolite':
     command     => 'gitolite setup -pk /tmp/admin_key.pub',
-    environment => 'HOME=$HOME',
     user        => 'git',
     path        => $::path,
     require     => Exec['install_gitolite'],
