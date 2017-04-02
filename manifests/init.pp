@@ -4,6 +4,7 @@ class gitolite (
 
   user { 'git':
     ensure => present,
+    home   => '/home/git',
   }
 
   vcsrepo { '/opt/gitolite':
@@ -14,7 +15,7 @@ class gitolite (
   }
 
   exec { 'install_gitolite':
-    command => '/opt/gitolite/install -ln /usr/local/bin/',
+    command => '/opt/gitolite/install -ln /home/git/bin/',
     user    => 'git',
     path    => $::path,
     require => Vcsrepo['/opt/gitolite'],
