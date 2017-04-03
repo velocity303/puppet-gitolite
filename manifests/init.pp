@@ -33,7 +33,7 @@ class gitolite (
   }
 
   exec { 'setup_gitolite':
-    command     => 'gitolite setup -pk /home/git/admin_key.pub',
+    command     => '/home/git/bin/gitolite setup -pk /home/git/admin_key.pub',
     environment => 'HOME=/home/git',
     user        => 'git',
     path        => $::path,
